@@ -1,0 +1,11 @@
+##Operating currencies in PHP
+Money values have decimal points (cents) and for some currencies specifically the cryptocurrencies they usually have lots of decimal points.
+To store these values we will have to rely on floating types which will allow us to track the cents/points. With floating points, we are also able to perform common arithmetic operations with the values
+
+##Problems of storing money values using floating points?
+Floating points are known to not yielding constant values in calculations, and since Monetary values are supposed to be of the right value each time.
+Mismatch of these values could result in serious losses. Take an example of Bitcoins, if calculation results in a minor offset in points this could mean
+wide spreads in fiat (USD, EUR e.t.c) currencies.
+
+##The best way to store money values in the Database
+The best way to store money values in Databases is by converting and storing them as integer values. This is achieved by multiplying such value with 10 to the power of its decimal points. For example, to store EUR 11.80 we first multiply it by 10 to the power of 2 since EUR and most fiat currencies have 2 decimal points. This will give us 1180 and this is the value we will store in the database. Keeping money value as integers allows us to retain original value which otherwise would have been affected by floating points issues. The other important thing to consider when storing monetary values like this is to keep track of currency for each value, this way it will be easier to convert back to the real value. Each time we want to access this value we will then have to preprocess it to get its exact value.
