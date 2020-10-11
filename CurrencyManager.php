@@ -1,9 +1,6 @@
 <?php
 class CurrencyManager {
 
-    var $price;
-    var $title;
-
     public function multiply($par) {
 
     }
