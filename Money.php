@@ -1,4 +1,11 @@
 <?php
+
+/*
+ * This simple script, implements a single Class (Money), and the goal of this Helper Class is to allow smooth management
+ * of monetary values for different currencies.. Using this class money values are processed as integers allowing
+ * preservation of values.
+ */
+
 class Money {
 
     protected $value;
